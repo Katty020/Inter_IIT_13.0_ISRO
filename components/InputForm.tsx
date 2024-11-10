@@ -22,6 +22,7 @@ const InputForm = () => {
       alert('Please fill in all required fields');
       return;
     }
+    console.log(formData)
     const response = await fetch('/api/process-data', {
       method: 'POST',
       headers: {
@@ -40,75 +41,113 @@ const InputForm = () => {
       animate={{ opacity: 1 }}
       onSubmit={handleSubmit}
     >
-      <div>
-        <label className={styles.label}>Spectra: </label>
-        <motion.input
-          className={styles.input}
-          type="text"
-          name="spectra"
-          value={formData.spectra}
-          onChange={handleChange}
-          required
-          whileFocus={{ scale: 1.05 }}
-        />
-      </div>
-      <div>
-        <label className={styles.label}>Element: </label>
-        <motion.input
-          className={styles.input}
-          type="text"
-          name="element"
-          value={formData.element}
-          onChange={handleChange}
-          required
-          whileFocus={{ scale: 1.05 }}
-        />
-      </div>
-      <div>
-        <label className={styles.label}>Significance: </label>
-        <motion.input
-          className={styles.input}
-          type="text"
-          name="significance"
-          value={formData.significance}
-          onChange={handleChange}
-          required
-          whileFocus={{ scale: 1.05 }}
-        />
-      </div>
-      <div>
-        <label className={styles.label}>Flux: </label>
-        <motion.input
-          className={styles.input}
-          type="text"
-          name="flux"
-          value={formData.flux}
-          onChange={handleChange}
-          whileFocus={{ scale: 1.05 }}
-        />
-      </div>
-      <div>
-        <label className={styles.label}>Ratios: </label>
-        <motion.input
-          className={styles.input}
-          type="text"
-          name="ratios"
-          value={formData.ratios}
-          onChange={handleChange}
-          whileFocus={{ scale: 1.05 }}
-        />
-      </div>
-      <div>
-        <label className={styles.label}>Uncertainties: </label>
-        <motion.input
-          className={styles.input}
-          type="text"
-          name="uncertainties"
-          value={formData.uncertainties}
-          onChange={handleChange}
-          whileFocus={{ scale: 1.05 }}
-        />
-      </div>
+
+      <table>
+      <tbody>
+
+        <tr>
+          <td>
+            <label className={styles.label}>Spectra </label>
+          </td>
+          <td>
+            <motion.input
+              className={styles.input}
+              type="text"
+              name="spectra"
+              value={formData.spectra}
+              onChange={handleChange}
+              required
+              whileFocus={{ scale: 1.05 }}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label className={styles.label}>Element </label>
+          </td>
+          <td>
+            <motion.input
+              className={styles.input}
+              type="text"
+              name="element"
+              value={formData.element}
+              onChange={handleChange}
+              required
+              whileFocus={{ scale: 1.05 }}
+            />
+          </td>
+
+        </tr>
+        <tr>
+          <td>
+            <label className={styles.label}>Significance </label>
+          </td>
+          <td>
+            <motion.input
+              className={styles.input}
+              type="text"
+              name="significance"
+              value={formData.significance}
+              onChange={handleChange}
+              required
+              whileFocus={{ scale: 1.05 }}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label className={styles.label}>Flux </label>
+          </td>
+          <td>
+            <motion.input
+              className={styles.input}
+              type="text"
+              name="flux"
+              value={formData.flux}
+              onChange={handleChange}
+              required
+              whileFocus={{ scale: 1.05 }}
+            /></td>
+
+        </tr>
+        <tr>
+          <td>
+            <label className={styles.label}>Ratios </label>
+          </td>
+          <td>
+            <motion.input
+              className={styles.input}
+              type="text"
+              name="ratios"
+              value={formData.ratios}
+              onChange={handleChange}
+              required
+              whileFocus={{ scale: 1.05 }}
+            />
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label className={styles.label}>Uncertainties </label>
+          </td>
+          <td>
+            <motion.input
+              className={styles.input}
+              type="text"
+              name="uncertainties"
+              value={formData.uncertainties}
+              onChange={handleChange}
+              required
+              whileFocus={{ scale: 1.05 }}
+            />
+          </td>
+        </tr>
+        </tbody>
+
+      </table>
+
+
       <motion.button
         className={styles.button}
         type="submit"
